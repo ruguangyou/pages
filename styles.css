@@ -1,0 +1,74 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f3f0ea;
+  --fg: #1c1b18;
+  --selection: #ddd6c8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161513;
+    --fg: #ece7df;
+    --selection: #3a362f;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Iowan Old Style", Palatino, "Palatino Linotype", "Book Antiqua",
+    Georgia, "Liberation Serif", serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--fg);
+}
+
+main {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: clamp(2.75rem, 14vh, 8.5rem) clamp(1.5rem, 7vw, 6.5rem);
+}
+
+h1 {
+  margin: 0;
+  max-width: 16ch;
+  font-size: clamp(2rem, 4vw, 3.15rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+@media (forced-colors: active) {
+  body {
+    background: Canvas;
+    color: CanvasText;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  main {
+    min-height: 0;
+    padding: 0;
+  }
+}
